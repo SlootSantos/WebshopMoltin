@@ -1,0 +1,13 @@
+<h1>{{ prod.title }}</h1>
+
+<p>
+  {{ prod.description }}
+</p>
+<br>
+<p>
+  <b>{{ prod.price.value }}</b>
+</p>
+<img src="{{ prod.images[0].url.http }}" alt="" height="200" />
+
+<button class="btn btn-success" ng-if="!addStatus" ng-click="addCart()">Add</button>
+<button class="btn btn-warning" ng-if="addStatus">{{ addStatus }}</button>
