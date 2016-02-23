@@ -17,14 +17,16 @@ angular.module('webshopMoltinApp')
     $scope.delete = function () {
           moltin.Cart.Delete(function() {
             // Everything is awesome...
-            $scope.$apply(function(){
-              $scope.cartDisplay = cart;
-            });
-            console.log(cart.totals.post_discount.formatted.with_tax);
+
+
             moltin.Cart.Contents(function(items) {
               $rootScope.cart = items;
               $rootScope.$apply();
+              $scope.cartDisplay = items;
+              $scope.$apply();
             });
+            moltin.Cart.totals
+            console.log(cart.totals.post_discount.formatted.with_tax);
         }, function() {
             // Something went wrong...
         });

@@ -1,5 +1,17 @@
 <h1>{{ cat.title }}</h1>
 
-<ul>
+
+<div class="container-fluid">
+  <div class="row">
+    <div ng-repeat="prod in products" class="col-md-4">
+      <h3><a ng-href="#/product/{{prod.id}}">{{ prod.title }}</a></h3>
+      <img src="{{ prod.images[0].url.http }}" alt="" height="150" width="150" />
+    </div>
+  </div>
+</div>
+
+
+
+<!--<ul>
   <li ng-repeat="prod in products"><a ng-href="#/product/{{prod.id}}">{{ prod.title }}</a></li>
-</ul>
+</ul>-->
