@@ -9,7 +9,10 @@
     </tr>
   </thead>
   <tbody>
+<!--
     <tr ng-repeat="product in cartDisplay.contents">
+-->
+    <tr ng-repeat="(id, product) in cartDisplay.contents">
       <td>{{product.name}}</td>
       <td>{{product.quantity}}</td>
       <td>{{product.pricing.formatted.without_tax}}</td>
