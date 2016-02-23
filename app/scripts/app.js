@@ -115,6 +115,9 @@ angular
         controller: 'CartCtrl',
         controllerAs: 'cart',
         resolve: {
+          moltin: function($q, MoltinAuth) {
+            return MoltinAuth;
+          },
           cart: function($q, MoltinAuth) {
             var deferred = $q.defer();
             MoltinAuth.then(function(moltin) {

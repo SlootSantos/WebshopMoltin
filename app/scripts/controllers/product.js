@@ -8,24 +8,24 @@
  * Controller of the webshopMoltinApp
  */
 angular.module('webshopMoltinApp')
-  .controller('ProductCtrl', function($scope, product, cart, moltin, $timeout) {
+  .controller('ProductCtrl', function($scope, $rootScope, product, cart, moltin, $timeout) {
     $scope.prod = product;
     $scope.car = cart;
     $scope.addStatus = null;
 
     $scope.addCart = function() {
-      $scope.addStatus = 'Adding...';
-
-      moltin.Cart.Insert(product.id, 1, null, function() {
+      $scope.addStatus = 'Adding to cart...';
+      // Insert(id, qty, modifiers/size, callback)
+      moltin.Cart.Insert(product.id, 1, null, function(cart) {
         $scope.addStatus = 'Success!';
+        moltin.Cart.Contents(function(items) {
+          $rootScope.cart = items;
+          $rootScope.$apply();
+        });
         $scope.$apply();
-        $timeout(function () {
+        $timeout(function() {
           $scope.addStatus = null;
         }, 1000);
       });
-      console.log(product);
-      console.log(cart);
-      console.log(cart.totals.post_discount.formatted.with_tax);
-      console.log('got a ' + product.title);
     };
   });
