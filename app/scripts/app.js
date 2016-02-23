@@ -132,4 +132,12 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function(MoltinAuth, $rootScope) {
+    MoltinAuth.then(function(moltin) {
+      moltin.Cart.Contents(function(items) {
+        $rootScope.cart = items;
+        $rootScope.$apply();
+      });
+    });
   });
