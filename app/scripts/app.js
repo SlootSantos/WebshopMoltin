@@ -140,6 +140,21 @@ angular
         }
       })
       //when anything else than a abovely defined route its going to redirect to the MAIN route
+      .when('/checkout', {
+        templateUrl: 'views/checkout.html',
+        controller: 'CheckoutCtrl',
+        controllerAs: 'checkout'
+      })
+      .when('/payment', {
+        templateUrl: 'views/payment.html',
+        controller: 'PaymentCtrl',
+        controllerAs: 'payment'
+      })
+      .when('/complete', {
+        templateUrl: 'views/complete.html',
+        controller: 'CompleteCtrl',
+        controllerAs: 'complete'
+      })
       .otherwise({
         redirectTo: '/'
       });
