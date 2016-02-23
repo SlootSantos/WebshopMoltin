@@ -143,17 +143,51 @@ angular
       .when('/checkout', {
         templateUrl: 'views/checkout.html',
         controller: 'CheckoutCtrl',
-        controllerAs: 'checkout'
+        resolve: {
+          cart: function($q, MoltinAuth) {
+            var deferred = $q.defer();
+            MoltinAuth.then(function(moltin) {
+              moltin.Cart.Contents(function(cart) {
+                deferred.resolve(cart);
+              });
+            });
+            return deferred.promise;
+          },
+          options: function($q, MoltinAuth) {
+            var deferred = $q.defer();
+            MoltinAuth.then(function(moltin) {
+              moltin.Cart.Checkout(function(options) {
+                deferred.resolve(options);
+              });
+            });
+            return deferred.promise;
+          },
+          fields: function($q, MoltinAuth) {
+            var deferred = $q.defer();
+            MoltinAuth.then(function(moltin) {
+              moltin.Address.Fields(null, null, function(fields) {
+                deferred.resolve(fields);
+              });
+            });
+            return deferred.promise;
+          },
+          moltin: function(MoltinAuth) {
+            return MoltinAuth;
+          }
+        }
       })
       .when('/payment', {
         templateUrl: 'views/payment.html',
         controller: 'PaymentCtrl',
-        controllerAs: 'payment'
+        resolve: {
+          moltin: function($q, MoltinAuth) {
+            return MoltinAuth;
+          }
+        }
       })
       .when('/complete', {
         templateUrl: 'views/complete.html',
-        controller: 'CompleteCtrl',
-        controllerAs: 'complete'
+        controller: 'CompleteCtrl'
       })
       .otherwise({
         redirectTo: '/'
