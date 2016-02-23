@@ -46,6 +46,7 @@ angular
         controller: 'StoreCtrl',
         controllerAs: 'store',
         resolve: {
+          //basically waits for moltin to authenticate and then gets the CATEGORiES made in the Moltin forge Dashboard, when the STORE route is called
           categories: function($q, MoltinAuth) {
             var deffered = $q.defer();
             $q.when(MoltinAuth).then(function(moltin){
@@ -62,6 +63,7 @@ angular
         controller: 'CategoryCtrl',
         controllerAs: 'category',
         resolve: {
+          //basically waits for moltin to authenticate and then gets the CATEGORIES and PRODUCTS made in the Moltin forge Dashboard, when the CATEGORY route is called
           category: function($q, $route, MoltinAuth) {
             var deffered = $q.defer();
             $q.when(MoltinAuth).then(function(moltin){
@@ -87,6 +89,11 @@ angular
         controller: 'ProductCtrl',
         controllerAs: 'product',
         resolve: {
+          /*basically waits for moltin to authenticate and then gets the PRODUCTS and the CART
+          *and the MOLTIN since the code is going to call moltin functions in the product controller
+          * made in the Moltin forge Dashboard, when the PRODUCT route is called
+          */
+
           product: function($q, $route, MoltinAuth) {
             var deffered = $q.defer();
             $q.when(MoltinAuth).then(function(moltin){
@@ -115,6 +122,9 @@ angular
         controller: 'CartCtrl',
         controllerAs: 'cart',
         resolve: {
+          //basically waits for moltin to authenticate and then gets the MOLTIN functions
+          // and Cart, when the CART route is called
+
           moltin: function($q, MoltinAuth) {
             return MoltinAuth;
           },
@@ -129,10 +139,12 @@ angular
           }
         }
       })
+      //when anything else than a abovely defined route its going to redirect to the MAIN route
       .otherwise({
         redirectTo: '/'
       });
   })
+  //inits the global cart variable $rootScope
   .run(function(MoltinAuth, $rootScope) {
     MoltinAuth.then(function(moltin) {
       moltin.Cart.Contents(function(items) {
