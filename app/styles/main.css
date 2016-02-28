@@ -26,11 +26,14 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .navbar-default {
   background-color: transparent;
   border: none;
+  margin-bottom: 0;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -39,6 +42,9 @@ body {
 
 .navbar-default .navbar-brand{
   color: white;
+}
+.navbar-default .navbar-nav > li > a:focus {
+color: white;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -71,7 +77,9 @@ body {
   padding: 14px 24px;
 }
 
-
+#context {
+  color: white;
+}
 
 /* Supporting marketing content */
 .marketing {
@@ -105,7 +113,14 @@ body {
   }
 }
 
+.footer {
+  margin-left: 50px;
+  margin-right: 50px;
+}
 /* Button Styles based on btn success*/
 .btn-success {
   background: rgba(0,0,0, .5);
+}
+.btn-success:hover {
+  background: linear-gradient(rgba(102, 255, 204, .2), rgba(153, 255, 51, .2));
 }
