@@ -9,17 +9,18 @@
  */
  angular.module('webshopMoltinApp')
  .controller('CheckoutCtrl', function ($scope, $rootScope, $location, moltin, cart, options, fields) {
-   $scope.data = {bill: {}, ship: {}, ship_bill: 0, notes: '', shipping: '', gateway: ''}
+   $scope.data = { bill: {}, ship: {}, ship_bill: 0, notes: '', shipping: '', gateway: ''}
    $scope.cartDisplay = cart;
    $scope.options = options;
    $scope.fields = fields;
+   console.log($scope.data.first_name);
 
    $scope.createOrder = function() {
      moltin.Cart.Complete({
        customer: {
-         first_name: 'Flo',
-         last_name:  'sloot',
-         email:      'flo.doe@gmail.com'
+         first_name: 'der',
+         last_name:  'dj',
+         email:      'floriansaas.doe@gmail.com'
        }, //guest customer for now
        shipping: $scope.data.shipping,
        gateway: $scope.data.gateway,
