@@ -6,7 +6,9 @@
 }
 html {
   min-height: 100vh;
-  background: linear-gradient(rgba(102, 255, 204, 1), rgba(153, 255, 51, 1));
+  /*background: linear-gradient(rgba(102, 255, 204, 1), rgba(153, 255, 51, 1));*/
+  background: url(/images/paris.jpg);
+  background-size: cover;
 }
 body {
   min-height: 100vh;

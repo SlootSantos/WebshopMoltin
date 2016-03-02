@@ -1,3 +1,4 @@
+'use strict';
 angular.module('webshopApp.moltin', [])
   .factory('MoltinAuth', function($q) {
     var deffered = $q.defer();
