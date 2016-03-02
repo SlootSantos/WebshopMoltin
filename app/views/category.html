@@ -2,21 +2,8 @@
 
 
 <div class="container-fluid">
-  <div class="row">
-    <div ng-repeat="prod in products" class="col-md-4 prod">
-      <table>
-        <tr>
-          <td>
-            <img src="{{ prod.images[0].url.http }}" alt="" height="150" width="150" />
-          </td>
-
-          <td>
-            <p ng-href="#/product/{{prod.id}}">{{ prod.description }}</p>
-          </td>
-        </tr>
-      </table>
-
-
+    <div  ng-repeat="prod in products" class="prod">
+      <img src="{{ prod.images[0].url.http }}" alt="" height="150" width="150" style="float:left;" />
+      <a ng-href="#/product/{{prod.id}}" style="float:left;">{{ prod.description }}</a>
     </div>
-  </div>
 </div>

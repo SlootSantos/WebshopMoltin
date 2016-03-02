@@ -41,7 +41,7 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>
+              <!--<li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>-->
               <li ng-class="{ active: isActive('/store')}"><a ng-href="#/store">Store</a></li>
               <li ng-class="{ active: isActive('/cart')}"><a ng-href="#/cart">Cart</a></li>
             </ul>
@@ -56,8 +56,8 @@
       </div>
     </div>
 
-    <div class="container" id="context">
-    <div ng-view=""></div>
+    <div class="container" >
+    <div id="context" ng-view=""></div>
     </div>
 
     <div class="footer">
