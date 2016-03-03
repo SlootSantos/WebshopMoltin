@@ -2,8 +2,18 @@
 
 
 <div class="container-fluid">
-    <div  ng-repeat="prod in products" class="prod">
-      <img src="{{ prod.images[0].url.http }}" alt="" height="150" width="150" style="float:left;" />
-      <a ng-href="#/product/{{prod.id}}" style="float:left;">{{ prod.description }}</a>
+    <div ng-repeat="prod in products" class="prod">
+      <a ng-href="#/product/{{prod.id}}">
+      <div class="pic" style="background:url({{ prod.images[0].url.http }}); background-size:cover;"></div>
+          <h3>
+            <!-- seems to prevent the <a> in line 6 from applying link styles to all text -->
+            {{ prod.title }}
+          </h3>
+        <p>
+          {{ prod.description }}
+          <br>
+          <b>{{ prod.price.value }}</b>
+        </p>
+        </a>
     </div>
 </div>

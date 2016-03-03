@@ -1,12 +1,38 @@
 .prod {
   background: rgba(0, 0, 0, .7);
   border: .5px solid black;
-  height: 250px;
+  height: 300px;
   margin: 10px;
+  border-radius: 5px;
+  -webkit-transition: background-color .5s, border .5s; /* Safari 3.1 to 6.0 */
+  transition: background-color .5s, border .5s;
 }
 
-.prod > img {
-  height: 100%;
-  width: 50%;
-  background-size: cover;
+.prod:hover {
+  background: rgba(50, 50, 50, .9);
+  border: .5px solid rgba(50, 50, 50, .9);
+
+}
+
+.prod > a:hover {
+  text-decoration: none;
+}
+
+.prod > a > h3,
+.prod > a > p {
+  padding-left: 10px;
+}
+
+.prod > a > h3 {
+  color: white;
+}
+
+.prod > a > p {
+  color: rgba(255, 255, 255, .8);
+}
+
+.pic {
+  height: 65%;
+  width: 100%;
+  border-bottom: 0.5px solid white;
 }
