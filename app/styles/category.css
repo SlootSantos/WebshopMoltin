@@ -11,7 +11,13 @@
 .prod:hover {
   background: rgba(50, 50, 50, .9);
   border: .5px solid rgba(50, 50, 50, .9);
+}
 
+.prod > a > p,
+.prod > a > h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .prod > a:hover {
