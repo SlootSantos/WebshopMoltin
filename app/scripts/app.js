@@ -189,6 +189,11 @@ angular
         templateUrl: 'views/complete.html',
         controller: 'CompleteCtrl'
       })
+      .when('/customize', {
+        templateUrl: 'views/customize.html',
+        controller: 'CustomizeCtrl',
+        controllerAs: 'customize'
+      })
       .otherwise({
         redirectTo: '/'
       });
