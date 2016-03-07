@@ -20,7 +20,7 @@
        customer: {
          first_name: 'der',
          last_name:  'mn',
-         email:      'kjjk.doe@gmail.com'
+         email:      'flosloot@gmx.de'
        }, //guest customer for now
        shipping: $scope.data.shipping,
        gateway: $scope.data.gateway,
