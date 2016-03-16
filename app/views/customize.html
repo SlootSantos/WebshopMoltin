@@ -1,11 +1,44 @@
-<label for="color">Farbe</label>
-<input id="color" type="text" ng-model="try1">
-<p style="color:{{try1}};">
-  hello
-</p>
-<!-- USE ANGULARS LOCAL STORAGE MODULE!!! -->
-<label for="name">Name</label>
-<input id="name" type="text" ng-model="try2">
-<p style="color:;">
-  {{try2}}
-</p>
+<div class="container-fluid">
+  <div class="cont">
+
+    <div class="left">
+        <h3>{{ head }}</h3>
+        <div style="background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, 0));border-radius:5px; padding-left:5px;padding-right:5px;">
+          <p>
+            {{ Text }}
+          </p>
+          <br>
+          <h3>HappyBirthday</h3>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <div class="right">
+      <h1>{{ prod.title }}</h1>
+      <textarea class="form-control" style="width: 100%;" ng-model="Text" ng-init="Text='Sample Text. e.g.: Happy Birthday blabla ninguem sabe de que to falando como
+      que é uma lingua diferente do alemao'"></textarea>
+
+      <input class="form-control" ng-model="head" ng-init="head='Hello MuFu'">
+
+      <div class="buyncus">
+        <p>
+          <b>{{ prod.price.value }}</b>
+        </p>
+
+        <p>
+          <button class="btn btn-success" ng-if="!addStatus" ng-click="addCart()">Add</button>
+          <button class="btn btn-warning" ng-if="addStatus">{{ addStatus }}</button>
+          <button class="btn btn-success">Customize</button>
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</div>

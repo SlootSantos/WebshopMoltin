@@ -8,6 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+  var serveStatic = require('serve-static');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -80,16 +81,10 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect().use(
-                '/app/styles',
-                connect.static('./app/styles')
-              ),
-              connect.static(appConfig.app)
+              serveStatic('.tmp'),
+              connect().use('/bower_components',
+              serveStatic('./bower_components')),
+              serveStatic(appConfig.app)
             ];
           }
         }
@@ -99,13 +94,12 @@ module.exports = function (grunt) {
           port: 9001,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
+              serveStatic('test'),
+
+              serveStatic('.tmp'),
+              connect().use('/bower_components',
+              serveStatic('./bower_components')),
+              serveStatic(config.app)
             ];
           }
         }
@@ -220,7 +214,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
